@@ -1,22 +1,17 @@
-import { Podcast } from '../../../src/podcast';
 import './App.css';
-import PodcastComponent from './components/Podcast';
+import React from 'react';
+import PodcastList from './components/PodcastList';
+import {Routes, Route} from 'react-router-dom'
+import podcasts from '../../../src/data';
 
-function App() {
+const App = () => {
 
-  const testPodcast: Podcast = {
-    id: '1',
-    name: 'anything goes with emma chamberlain',
-    artist: 'Emma chamberlain',
-    uri: 'spotify:episode:123',
-    image: 'https://example.com/podcast-image.jpg',
-  }
+  console.log("i am in app");
 
   return (
-    <>
-    <div> hi </div>
-    <PodcastComponent podcast={testPodcast} />
-    </>
+   <Routes>
+    <Route path='/' element={<PodcastList podcasts={podcasts} />} />
+   </Routes>
   )
 }
 
